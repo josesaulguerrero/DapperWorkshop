@@ -1,4 +1,4 @@
-﻿using DapperWorkshop.DataAccess.Data.Entities;
+﻿using DapperWorkshop.Data.Entities;
 
 namespace DapperWorkshop.Data.Repositories;
 

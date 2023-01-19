@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperWorkshop.Web", "DapperWorkshop.Web\DapperWorkshop.Web.csproj", "{44194780-37D1-4965-9DA3-A00E1E002973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperWorkshop.Web", "DapperWorkshop.Web\DapperWorkshop.Web.csproj", "{44194780-37D1-4965-9DA3-A00E1E002973}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DapperWorkshop.Sql", "DapperWorkshop.Sql\DapperWorkshop.Sql.sqlproj", "{9AA5B710-DF8B-49A6-98F7-D889F32BEF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperWorkshop.DataAccess", "DapperWorkshop.DataAccess\DapperWorkshop.DataAccess.csproj", "{9DD81CA3-1B88-475B-8A89-C37B46B3FB1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperWorkshop.Data", "DapperWorkshop.DataAccess\DapperWorkshop.Data.csproj", "{9DD81CA3-1B88-475B-8A89-C37B46B3FB1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2C53264-8230-4EE9-8B06-75519D2A578C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

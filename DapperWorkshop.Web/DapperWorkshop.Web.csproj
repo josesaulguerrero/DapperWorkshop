@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DapperWorkshop.DataAccess\DapperWorkshop.DataAccess.csproj" />
+    <ProjectReference Include="..\DapperWorkshop.DataAccess\DapperWorkshop.Data.csproj" />
   </ItemGroup>
 
 </Project>

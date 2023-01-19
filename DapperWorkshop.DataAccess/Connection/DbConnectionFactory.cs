@@ -15,7 +15,7 @@ public class DbConnectionFactory : IDbConnectionFactory
         _configuration = configuration;
     }
 
-    public async Task<IDbConnection> GetConnectionAsync(string connectionStringName)
+    public async Task<IDbConnection> GetConnectionAsync(string? connectionStringName = "Default")
     {
         DbConnection connection = new SqlConnection(_configuration.GetConnectionString(connectionStringName));
         await connection.OpenAsync();

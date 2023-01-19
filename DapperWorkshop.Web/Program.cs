@@ -1,6 +1,8 @@
 using DapperWorkshop.Data.Repositories;
 using DapperWorkshop.Data.DAO;
 using DapperWorkshop.Data.Connection;
+using SqlKata.Compilers;
+using DapperWorkshop.Data.Queries;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,10 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddTransient<IDbConnectionFactory, DbConnectionFactory>();
+builder.Services.AddTransient<Compiler>(_ => new SqlServerCompiler());
+builder.Services.AddTransient<IDbQueryFactory, DbQueryFactory>();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IEmployeeDataAccess, EmployeeDataAccess>();
 

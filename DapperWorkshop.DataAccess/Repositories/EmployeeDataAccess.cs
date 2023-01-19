@@ -1,5 +1,5 @@
 ﻿using DapperWorkshop.Data.DAO;
-using DapperWorkshop.DataAccess.Data.Entities;
+using DapperWorkshop.Data.Entities;
 
 namespace DapperWorkshop.Data.Repositories;
 
