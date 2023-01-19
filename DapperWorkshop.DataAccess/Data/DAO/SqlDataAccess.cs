@@ -1,19 +1,18 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 
 using Dapper;
 
-using Microsoft.Extensions.Configuration;
+using DapperWorkshop.Data.Connection;
 
-namespace DapperWorkshop.DataAccess.DBAccess;
+namespace DapperWorkshop.Data.DAO;
 
 public class SqlDataAccess : ISqlDataAccess
 {
-    private readonly IConfiguration _configuration;
+    private readonly IDbConnectionFactory _connectionFactory;
 
-    public SqlDataAccess(IConfiguration configuration)
+    public SqlDataAccess(IDbConnectionFactory connectionFactory)
     {
-        this._configuration = configuration;
+        this._connectionFactory = connectionFactory;
     }
 
     public async Task<IEnumerable<T>> SelectAsync<T, K>(
@@ -21,7 +20,7 @@ public class SqlDataAccess : ISqlDataAccess
         K parameters,
         string connectionStringName = "Default")
     {
-        IDbConnection dbConnection = OpenDbConnection(connectionStringName);
+        IDbConnection dbConnection = await _connectionFactory.GetConnectionAsync(connectionStringName);
 
         IEnumerable<T> results = await dbConnection.QueryAsync<T>(
             storedProcedure,
@@ -37,7 +36,7 @@ public class SqlDataAccess : ISqlDataAccess
         T parameters,
         string connectionStringName = "Default")
     {
-        IDbConnection dbConnection = OpenDbConnection(connectionStringName);
+        IDbConnection dbConnection = await _connectionFactory.GetConnectionAsync(connectionStringName);
 
         await dbConnection.QueryAsync<T>(
             storedProcedure,
@@ -45,10 +44,5 @@ public class SqlDataAccess : ISqlDataAccess
             commandType: CommandType.StoredProcedure
         );
         dbConnection.Dispose();
-    }
-
-    private IDbConnection OpenDbConnection(string connectionStringName)
-    {
-        return new SqlConnection(_configuration.GetConnectionString(connectionStringName));
     }
 }

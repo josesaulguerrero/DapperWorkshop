@@ -1,5 +1,6 @@
-using DapperWorkshop.DataAccess.Data;
-using DapperWorkshop.DataAccess.DBAccess;
+using DapperWorkshop.Data.Repositories;
+using DapperWorkshop.Data.DAO;
+using DapperWorkshop.Data.Connection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IDbConnectionFactory, DbConnectionFactory>();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IEmployeeDataAccess, EmployeeDataAccess>();
 

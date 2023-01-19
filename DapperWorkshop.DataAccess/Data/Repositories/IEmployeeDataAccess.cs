@@ -1,6 +1,6 @@
-﻿using DapperWorkshop.DataAccess.Entities;
+﻿using DapperWorkshop.DataAccess.Data.Entities;
 
-namespace DapperWorkshop.DataAccess.Data;
+namespace DapperWorkshop.Data.Repositories;
 
 public interface IEmployeeDataAccess
 {

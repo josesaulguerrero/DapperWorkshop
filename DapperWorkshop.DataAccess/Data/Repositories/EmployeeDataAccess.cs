@@ -1,7 +1,7 @@
-﻿using DapperWorkshop.DataAccess.DBAccess;
-using DapperWorkshop.DataAccess.Entities;
+﻿using DapperWorkshop.Data.DAO;
+using DapperWorkshop.DataAccess.Data.Entities;
 
-namespace DapperWorkshop.DataAccess.Data;
+namespace DapperWorkshop.Data.Repositories;
 
 public class EmployeeDataAccess : IEmployeeDataAccess
 {

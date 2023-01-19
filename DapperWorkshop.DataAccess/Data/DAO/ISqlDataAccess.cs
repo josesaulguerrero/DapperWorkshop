@@ -1,4 +1,4 @@
-﻿namespace DapperWorkshop.DataAccess.DBAccess
+﻿namespace DapperWorkshop.Data.DAO
 {
     public interface ISqlDataAccess
     {

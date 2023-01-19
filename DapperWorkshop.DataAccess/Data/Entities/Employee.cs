@@ -1,4 +1,4 @@
-﻿namespace DapperWorkshop.DataAccess.Entities;
+﻿namespace DapperWorkshop.DataAccess.Data.Entities;
 
 public class Employee
 {
