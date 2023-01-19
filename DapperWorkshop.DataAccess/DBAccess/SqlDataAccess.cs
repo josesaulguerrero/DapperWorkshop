@@ -16,7 +16,7 @@ public class SqlDataAccess : ISqlDataAccess
         this._configuration = configuration;
     }
 
-    public async Task<IEnumerable<T>> SelectAllAsync<T, K>(
+    public async Task<IEnumerable<T>> SelectAsync<T, K>(
         string storedProcedure,
         K parameters,
         string connectionStringName = "Default")
@@ -32,7 +32,7 @@ public class SqlDataAccess : ISqlDataAccess
         return results;
     }
 
-    public async Task InsertAsync<T>(
+    public async Task SaveAsync<T>(
         string storedProcedure,
         T parameters,
         string connectionStringName = "Default")
