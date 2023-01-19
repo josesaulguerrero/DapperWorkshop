@@ -1,8 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[SPEmployee_DeleteByPK]
-	@Id int
+	@Id int,
+	@FiredAt DATETIME
 AS
 BEGIN
-	DELETE
-	FROM dbo.[Employee]
+	UPDATE dbo.[Employee]
+	SET FiredAt = @FiredAt
 	WHERE Id = @Id;
 END

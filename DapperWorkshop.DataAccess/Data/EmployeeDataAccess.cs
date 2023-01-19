@@ -41,12 +41,19 @@ public class EmployeeDataAccess : IEmployeeDataAccess
     public Task UpdateEmployeeAsync(Employee employee) =>
         _db.SaveAsync<dynamic>(
             "dbo.SPEmployee_UpdateByPK",
-            employee
+            new
+            {
+                employee.Id,
+                employee.Name,
+                employee.Email,
+                employee.Age,
+                employee.FiredAt
+            }
         );
 
     public Task DeleteEmployeeAsync(int id) =>
         _db.SaveAsync<dynamic>(
             "dbo.SPEmployee_DeleteByPK",
-            new { Id = id }
+            new { Id = id, FiredAt = DateTime.Now }
         );
 }
