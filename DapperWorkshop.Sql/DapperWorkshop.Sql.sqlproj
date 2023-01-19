@@ -68,4 +68,10 @@
     <Build Include="dbo\StoredProcedures\SPEmployee_Insert.sql" />
     <Build Include="dbo\StoredProcedures\SPEmployee_UpdateByPK.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.EmployeesSeeder.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DapperWorkshop.Sql.publish.xml" />
+  </ItemGroup>
 </Project>
