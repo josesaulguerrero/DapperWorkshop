@@ -3,7 +3,7 @@ using DapperWorkshop.DataAccess.Entities;
 
 namespace DapperWorkshop.DataAccess.Data;
 
-public class EmployeeDataAccess
+public class EmployeeDataAccess : IEmployeeDataAccess
 {
     private readonly ISqlDataAccess _db;
 
