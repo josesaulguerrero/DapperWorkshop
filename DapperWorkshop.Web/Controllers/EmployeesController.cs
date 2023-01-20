@@ -3,8 +3,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DapperWorkshop.Data.Entities;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace DapperWorkshop.Web.Controllers;
 
 [Route("api/[controller]")]
@@ -38,8 +36,8 @@ public class EmployeesController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] Employee employee)
     {
-        await _employeeDataAccess.InsertEmployeeAsync(employee);
-        return StatusCode(StatusCodes.Status201Created);
+        int id = await _employeeDataAccess.InsertEmployeeAsync(employee);
+        return CreatedAtAction(nameof(GetAsync), new { id });
     }
 
     // PUT api/<EmployeesController>/5
@@ -47,14 +45,15 @@ public class EmployeesController : ControllerBase
     public async Task<IActionResult> PutAsync(int id, [FromBody] Employee employee)
     {
         employee.Id = id;
-        await _employeeDataAccess.UpdateEmployeeAsync(employee);
-        return Ok();
+        bool updatedSuccessfully = await _employeeDataAccess.UpdateEmployeeAsync(employee);
+        return Ok(updatedSuccessfully);
     }
 
     // DELETE api/<EmployeesController>/5
     [HttpDelete("{id}")]
-    public async Task Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        await _employeeDataAccess.DeleteEmployeeAsync(id);
+        bool deletedSuccessfully = await _employeeDataAccess.DeleteEmployeeAsync(id);
+        return Ok(deletedSuccessfully);
     }
 }

@@ -48,5 +48,5 @@ public class EmployeeDataAccess : IEmployeeDataAccess
         );
 
     public Task<bool> DeleteEmployeeAsync(int id) =>
-        _db.DeleteAsync(id, TABLE_NAME, TABLE_PK);
+        _db.UpdateAsync(id, new { FiredAt = DateTime.Now }, TABLE_NAME, TABLE_PK);
 }
